@@ -1,3 +1,3 @@
 #movieRatings
 
-https://rdhelms.github.io/movie-ratings/
+https://rdhelms.github.io/movieRatings/
