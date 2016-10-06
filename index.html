@@ -14,10 +14,39 @@
   <div class="container">
 
   <aside class="left">
-    Search
+    <form>
+      <label for='movieSearch'>Search</label>
+      <input type='search' id='movieSearch' placeholder='Search for movies'>
+    </form>
   </aside>
 
   <main>
+    <div class="topTwentyBox">
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+      <div class="topTwenty">
+      </div>
+    </div>
   </main>
 
   <aside class="right">
@@ -29,6 +58,24 @@
   </footer>
 
 
+
+  <script id="single-movie-template" type="text/x-handlebars-template">
+    <div class="poster">
+      {{moviePoster}}
+    </div>
+    <div class="movieInfoBox">
+      <div class="movieTitle">
+        {{movieTitle}}
+      </div>
+      <div class="movieInfo">
+        <p>{{movieInfo}}</p>
+        <div class="ratings">
+          <p>{{yourRating}}</p>
+          <p>{{averageRating}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
 
   <script src="js/jquery-3.1.1.min.js"> </script>
   <script src="js/handlebars-v4.0.5.js"> </script>

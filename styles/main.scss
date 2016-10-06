@@ -34,15 +34,79 @@ header {
 
   main {
     height: 100%;
-    width: 80%;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+    .topTwentyBox {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      // background: white;
+      .topTwenty {
+        width: 140px;
+        height: 200px;
+        background: red;
+        margin: 10px;
+      }
+    }
+    .poster {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90%;
+      width: 40%;
+      background: brown;
+      margin-right: 5%;
+    }
+    .movieInfoBox {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 90%;
+      width: 50%;
+      background: #ccc;
+      .movieTitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 85%;
+        height: 20%;
+        background: white;
+      }
+      .movieInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5%;
+        text-align: justify;
+        width: 85%;
+        height: 70%;
+        background: white;
+        .ratings {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          height: 10%;
+          width: 100%;
+          background: red;
+        }
+      }
+    }
   }
 
   aside {
     height: 100%;
-    width: 10%;
-    background: gray;
+    width: 15%;
+    // background: gray;
     &.left {
       padding: 1%;
+      input {
+        width: 90%;
+      }
     }
   }
 }
