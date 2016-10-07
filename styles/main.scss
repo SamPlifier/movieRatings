@@ -1,112 +1,150 @@
 // MovieRatings
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
+body,
+html {
+    height: 100%;
+    width: 100%;
 }
 
 body {
-  background: beige;
-  display: flex;
-  align-items: center;
-  // justify-content: center;
-  flex-direction: column;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 header {
-  height: 20%;
-  width: 100%;
-  background: blue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    height: 15%;
+    width: 100%;
+    background: linear-gradient(-90deg, #222222, #248f8f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#topLogo {
+    position: absolute;
+    height: 90px;
+    top: 5%;
+    right: 90%;
+}
+
+label {
+    font-size: 2em;
+    font-family: 'Poiret One', cursive;
+    color: #248f8f;
+}
+
+input#movieSearch {
+    font-family: 'Josefin Slab', serif;
+    font-size: 1.5em;
+    font-weight: 500;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 100;
+    font-size: 60px;
+    color: white;
 }
 
 .container {
-  height: 80%;
-  width: 100%;
-  display: flex;
-
-  main {
-    height: 100%;
-    width: 85%;
+    height: 80%;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    padding: 2%;
-    .topTwentyBox {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      // background: white;
-      .topTwenty {
-        width: 140px;
-        height: 200px;
-        background: red;
-        margin: 10px;
-      }
-    }
-    .poster {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 90%;
-      width: 40%;
-      background: brown;
-      margin-right: 5%;
-    }
-    .movieInfoBox {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 90%;
-      width: 50%;
-      background: #ccc;
-      .movieTitle {
+
+    main {
+        height: 100%;
+        width: 85%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        width: 85%;
-        height: 20%;
-        background: white;
-      }
-      .movieInfo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0 5%;
-        text-align: justify;
-        width: 85%;
-        height: 70%;
-        background: white;
-        .ratings {
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          height: 10%;
-          width: 100%;
-          background: red;
-        }
-      }
-    }
-  }
+        padding: 2%;
 
-  aside {
-    height: 100%;
-    width: 15%;
-    // background: gray;
-    &.left {
-      padding: 1%;
-      input {
-        width: 90%;
-      }
+        .topTwentyBox {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-self: auto;
+            width: 100%;
+            height: 100%;
+
+            .topTwenty {
+                justify-content: center;
+                width: 140px;
+                height: 200px;
+                background: grey;
+                margin: 10px;
+            }
+        }
+
+        .poster {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80%;
+            width: 40%;
+            background: white;
+            margin-right: 0 2.5% 0 2.5%;
+        }
+
+        .movieInfoBox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 90%;
+            width: 50%;
+            background: #ccc;
+
+            .movieTitle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 85%;
+                height: 20%;
+                background: white;
+            }
+
+            .movieInfo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 5%;
+                text-align: justify;
+                width: 85%;
+                height: 70%;
+                background: white;
+
+                .ratings {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    height: 10%;
+                    width: 100%;
+                    background: red;
+                }
+            }
+        }
     }
-  }
+
+    aside {
+        height: 100%;
+        width: 15%;
+        // background: gray;
+        &.left {
+            padding: 1%;
+
+            input {
+                width: 90%;
+            }
+        }
+    }
 }

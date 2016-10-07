@@ -3,23 +3,48 @@
   padding: 0;
   box-sizing: border-box; }
 
-html, body {
+body,
+html {
   height: 100%;
   width: 100%; }
 
 body {
-  background: beige;
+  background: white;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column; }
 
 header {
-  height: 20%;
+  height: 15%;
   width: 100%;
-  background: blue;
+  background: linear-gradient(-90deg, #222222, #248f8f);
   display: flex;
   align-items: center;
   justify-content: center; }
+
+#topLogo {
+  position: absolute;
+  height: 90px;
+  top: 5%;
+  right: 90%; }
+
+label {
+  font-size: 2em;
+  font-family: 'Poiret One', cursive;
+  color: #248f8f; }
+
+input#movieSearch {
+  font-family: 'Josefin Slab', serif;
+  font-size: 1.5em;
+  font-weight: 500;
+  width: 100%; }
+
+h1 {
+  font-family: 'Josefin Slab', serif;
+  font-weight: 100;
+  font-size: 60px;
+  color: white; }
 
 .container {
   height: 80%;
@@ -33,23 +58,25 @@ header {
     padding: 2%; }
     .container main .topTwentyBox {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
+      align-self: auto;
       width: 100%;
       height: 100%; }
       .container main .topTwentyBox .topTwenty {
+        justify-content: center;
         width: 140px;
         height: 200px;
-        background: red;
+        background: grey;
         margin: 10px; }
     .container main .poster {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 90%;
+      height: 80%;
       width: 40%;
-      background: brown;
-      margin-right: 5%; }
+      background: white;
+      margin-right: 0 2.5% 0 2.5%; }
     .container main .movieInfoBox {
       display: flex;
       flex-direction: column;
