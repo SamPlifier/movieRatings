@@ -68,20 +68,12 @@ function MovieDetails(movieObject) {
   };
   this.addToList = function() {
     if (movieObject.poster_path !== null) {
-      var $current = $('<div class="topTwenty" data-id=' + this.info.movieId + '></div>').css({
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-      }).appendTo('.topTwentyBox');
-      $('<img src=' + this.info.poster + '>').css('height','90%').appendTo($current);
-      $('<p>' + this.info.title + '</p>').css('text-align','center').appendTo($current);
+      var $current = $('<div class="topTwenty" data-id=' + this.info.movieId + '></div>').appendTo('.topTwentyBox');
+      $('<img src=' + this.info.poster + '>').appendTo($current);
+      $('<p>' + this.info.title + '</p>').appendTo($current);
     } else {
-      var $current = $('<div class="topTwenty" data-id=' + this.info.movieId + '>No Image</div>').css({
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-      }).appendTo('.topTwentyBox');
-      $('<p>' + this.info.title + '</p>').css('text-align','center').appendTo($current);
+      var $current = $('<div class="topTwenty" data-id=' + this.info.movieId + '>No Image</div>').appendTo('.topTwentyBox');
+      $('<p>' + this.info.title + '</p>').appendTo($current);
     }
   };
 }

@@ -21,21 +21,31 @@ body {
 }
 
 header {
-    height: 15%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    height: 100px;
     width: 100%;
     background: linear-gradient(-90deg, #222222, #248f8f);
     display: flex;
     align-items: center;
     justify-content: center;
+    #topLogo {
+        position: fixed;
+        height: 80px;
+        top: 10px;
+        right: 90%;
+        z-index: 3;
+    }
 }
 
-#topLogo {
-    position: absolute;
-    height: 90px;
-    top: 5%;
-    right: 90%;
+form {
+  position: fixed;
+  top: 103px;
+  left: 15px;
+  min-width: 100px;
+  max-width: 150px;
 }
-
 label {
     font-size: 2em;
     font-family: 'Poiret One', cursive;
@@ -63,7 +73,7 @@ h1 {
 
     main {
         height: 100%;
-        width: 85%;
+        width: 75%;
         display: flex;
         justify-content: center;
         padding: 2%;
@@ -77,11 +87,20 @@ h1 {
             height: 100%;
 
             .topTwenty {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
                 width: 140px;
                 height: 200px;
                 background: grey;
                 margin: 10px;
+                img {
+                  height: 90%;
+                }
+                p {
+                  text-align: center;
+                }
             }
         }
 
@@ -145,6 +164,19 @@ h1 {
             input {
                 width: 90%;
             }
+        }
+        &.right {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: fixed;
+          top: 100px;
+          right: 0;
+          // background: gray;
+          button {
+            margin: 20px 0;
+            width: 75%;
+          }
         }
     }
 }
