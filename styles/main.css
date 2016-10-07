@@ -61,17 +61,15 @@ h1 {
   width: 100%;
   display: flex; }
   .container main {
+    width: 74%;
     height: 100%;
-    width: 75%;
     display: flex;
-    justify-content: center;
-    padding: 2%; }
+    justify-content: center; }
     .container main .topTwentyBox {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
       align-self: auto;
-      width: 100%;
+      width: 95%;
       height: 100%; }
       .container main .topTwentyBox .topTwenty {
         display: flex;
@@ -80,7 +78,7 @@ h1 {
         justify-content: center;
         width: 140px;
         height: 200px;
-        background: grey;
+        background: #c2c2c2;
         margin: 10px; }
         .container main .topTwentyBox .topTwenty img {
           height: 90%; }
@@ -127,11 +125,10 @@ h1 {
           background: red; }
   .container aside {
     height: 100%;
-    width: 15%; }
-    .container aside.left {
-      padding: 1%; }
-      .container aside.left input {
-        width: 90%; }
+    width: 10%;
+    margin: 0 2%; }
+    .container aside.left input {
+      width: 90%; }
     .container aside.right {
       display: flex;
       flex-direction: column;

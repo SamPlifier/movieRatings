@@ -30,6 +30,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+
     #topLogo {
         position: fixed;
         height: 80px;
@@ -40,12 +41,13 @@ header {
 }
 
 form {
-  position: fixed;
-  top: 103px;
-  left: 15px;
-  min-width: 100px;
-  max-width: 150px;
+    position: fixed;
+    top: 103px;
+    left: 15px;
+    min-width: 100px;
+    max-width: 150px;
 }
+
 label {
     font-size: 2em;
     font-family: 'Poiret One', cursive;
@@ -72,18 +74,16 @@ h1 {
     display: flex;
 
     main {
+        width: 74%;
         height: 100%;
-        width: 75%;
         display: flex;
         justify-content: center;
-        padding: 2%;
-
+        // padding: 2%;
         .topTwentyBox {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
             align-self: auto;
-            width: 100%;
+            width: 95%;
             height: 100%;
 
             .topTwenty {
@@ -93,13 +93,15 @@ h1 {
                 justify-content: center;
                 width: 140px;
                 height: 200px;
-                background: grey;
+                background: #c2c2c2;
                 margin: 10px;
+
                 img {
-                  height: 90%;
+                    height: 90%;
                 }
+
                 p {
-                  text-align: center;
+                    text-align: center;
                 }
             }
         }
@@ -156,27 +158,26 @@ h1 {
 
     aside {
         height: 100%;
-        width: 15%;
-        // background: gray;
+        width: 10%;
+        margin: 0 2%;
         &.left {
-            padding: 1%;
-
             input {
                 width: 90%;
             }
         }
+
         &.right {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          position: fixed;
-          top: 100px;
-          right: 0;
-          // background: gray;
-          button {
-            margin: 20px 0;
-            width: 75%;
-          }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 100px;
+            right: 0;
+            // background: gray;
+            button {
+                margin: 20px 0;
+                width: 75%;
+            }
         }
     }
 }
