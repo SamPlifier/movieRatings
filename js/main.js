@@ -468,8 +468,8 @@ $('form').submit(function(e) {
 $('.topTwentyBox').on({
   mouseenter: function(){
     $(this).css({
-      transition: 'all 0.2s ease',
-      transform: 'scale(1.2)'
+      transition: 'all .5s ease',
+      transform: 'scale(1.3)',
     });
   },
   mouseleave: function(){
