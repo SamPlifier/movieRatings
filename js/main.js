@@ -360,16 +360,20 @@ function getMovie(movieId) {
  */
 function movieSearch(searchString) {
   var settings = {
-    "url": "https://api.themoviedb.org/3/search/movie?query=" + encodeURIComponent(searchString) + "&api_key=" + user.apiKey,
+    // "url": "https://api.themoviedb.org/3/search/movie?query=" + encodeURIComponent(searchString) + "&api_key=" + user.apiKey,
+    "url": "https://arcane-woodland-29724.herokuapp.com/",
     "method": "GET",
+    "headers": {
+      "content-type": "application/json"
+    },
   };
   $.ajax(settings).done(function(response) {
     console.log(response);
-    $('.topTwentyBox').html('');
-    response.results.forEach(function(movie) {
-        var newMovie = new MovieDetails(movie);
-        newMovie.addToList();
-    });
+    // $('.topTwentyBox').html('');
+    // response.results.forEach(function(movie) {
+    //     var newMovie = new MovieDetails(movie);
+    //     newMovie.addToList();
+    // });
   });
 }
 
