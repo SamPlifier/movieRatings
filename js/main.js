@@ -1,16 +1,137 @@
 // MovieRatings
-
 /**
 Define API Key to gain access to the movie database
 */
 var user = {
-  username: 'rdhelms',
-  password: 'Natella7712', //Need to have password here to work
+  username: '',
+  password: '',
   apiKey: 'c9ef0bc9da53c3ef0e7990875f210ab9',
   session: null,
   validSession: false,
-  id: null
+  id: null,
+  loggedIn: false
 };
+
+// If user was logged in when the page was refreshed, get the old info.
+if (localStorage.loggedIn !== undefined) {
+  user.loggedIn = localStorage.loggedIn;
+  user.username = localStorage.username;
+  user.password = localStorage.password;
+}
+
+// Cover page so that only thing visible is login prompt
+if (!user.loggedIn) {
+  $('<div>').attr({
+    'class': 'loginBackground'
+  }).css({
+    'display': 'flex',
+    'justify-content': 'center',
+    'align-items': 'center',
+    'z-index': '1',
+    'position': 'fixed',
+    'height': '100%',
+    'width': '100%',
+    'background': 'radial-gradient(circle, #222222, #248f8f)'
+  }).prependTo($('body'));
+
+  // Display user login window
+  $('<div>').attr({
+    'class': 'loginWindow'
+  }).css({
+    'background': 'black',
+    'height': '40%',
+    'width': '40%',
+    'border': '1px solid black',
+    'display': 'flex',
+    'flex-direction': 'column',
+    'justify-content': 'center',
+    'align-items': 'center',
+    'border': '1px solid #248f8f',
+    'border-radius': '20px',
+    'box-shadow': '0 0 150px white'
+  }).appendTo($('.loginBackground'));
+
+  // Prompt for login
+  $('<p>').addClass('loginPrompt').css({
+    'color': '#248f8f',
+    'margin-bottom': '20px',
+    'text-align': 'center'
+  }).html('Please login with your TMDB account: ').appendTo($('.loginWindow'));
+
+  // Container for input field for username
+  $('<div>').attr({
+    'class': 'usernameContainer',
+  }).css({
+    'width': '70%',
+    'display': 'flex',
+    'flex-wrap': 'wrap',
+    'align-items': 'center',
+    'justify-content': 'space-between',
+  }).appendTo('.loginWindow');
+
+  // Label and input for username
+  $('<label>').attr({
+    'for': 'username',
+  }).html('Username: ').appendTo('.usernameContainer');
+  $('<input>').attr({
+    'id': 'username',
+    'type': 'text',
+    'placeholder': 'username',
+  }).css({
+    'padding': '10px',
+    'font-size': '20px',
+    'width': '100%'
+  }).appendTo('.usernameContainer');
+
+  // Container for input field for password
+  $('<div>').attr({
+    'class': 'passwordContainer',
+  }).css({
+    'width': '70%',
+    'display': 'flex',
+    'flex-wrap': 'wrap',
+    'align-items': 'center',
+    'justify-content': 'space-between'
+  }).appendTo('.loginWindow');
+
+  // Label and input for password
+  $('<label>').attr({
+    'for': 'password',
+  }).html('Password: ').appendTo('.passwordContainer');
+  $('<input>').attr({
+    'id': 'password',
+    'type': 'password',
+    'placeholder': 'password'
+  }).css({
+    'padding': '10px',
+    'font-size': '20px',
+    'width': '100%'
+  }).appendTo('.passwordContainer');
+
+  // Container for buttons
+  $('<div>').addClass('loginButtons').css({
+    'margin-top': '20px',
+    'width': '70%',
+    'display': 'flex',
+    'justify-content': 'space-around'
+  }).appendTo('.loginWindow');
+  // Button to create new account
+  // $('<button>').addClass('createAccountBtn').html('Create Account').css({
+  //   'width': '40%',
+  //   'border-radius': '5px',
+  //   'padding': '10px'
+  // }).appendTo('.loginButtons');
+  // Button to login
+  $('<button>').addClass('loginBtn').html('Login').css({
+    'width': '40%',
+    'border-radius': '5px',
+    'padding': '10px',
+    'outline-style': 'none'
+  }).appendTo('.loginButtons');
+} else {
+  createSession();
+}
+
 
 var currentMovieRating = undefined;
 
@@ -18,7 +139,10 @@ var currentMovieRating = undefined;
 function createSession() {
   var settings = {
     "url": "https://api.themoviedb.org/3/authentication/token/new?api_key=" + encodeURIComponent(user.apiKey),
-    "method": "GET"
+    "method": "GET",
+    "error": function(error) {
+      alert("Not a valid username or password! Login with your TMDB account.");
+    }
   };
   $.ajax(settings).done(function (response) {
     console.log(response);
@@ -26,6 +150,9 @@ function createSession() {
     var settings = {
       "url": "https://api.themoviedb.org/3/authentication/token/validate_with_login?request_token=" + user.requestToken + "&password=" + user.password + "&username=" + user.username + "&api_key=" + user.apiKey,
       "method": "GET",
+      "error": function(error) {
+        alert("Not a valid username or password! Login with your TMDB account.");
+      }
     };
     $.ajax(settings).done(function (response) {
       console.log(response);
@@ -33,12 +160,22 @@ function createSession() {
       var settings = {
         "url": "https://api.themoviedb.org/3/authentication/session/new?request_token=" + user.requestToken + "&api_key=" + user.apiKey,
         "method": "GET",
+        "error": function(error) {
+          alert("Not a valid username or password! Login with your TMDB account.");
+        }
       };
       $.ajax(settings).done(function (response) {
         console.log(response);
         user.session = response.session_id;
-        validSession = true;
-        getAccount();
+        if (user.session !== null) {
+          $('.loginBackground').remove();
+          validSession = true;
+          user.loggedIn = true;
+          localStorage.loggedIn = true;
+          getAccount();
+        } else {
+          alert("Not a valid username or password! Login with your TMDB account.");
+        }
       });
     });
   });
@@ -302,6 +439,23 @@ function deleteRating(movieId) {
   });
 }
 
+// When user logs in, store the info and change display.
+$('.loginBtn').click(function() {
+  user.username = $('#username').val();
+  user.password = $('#password').val();
+  localStorage.username = user.username;
+  localStorage.password = user.password;
+  createSession();
+});
+
+// If the user presses enter from the password field, trigger the login button click
+$('#password').keyup(function(e) {
+  if (e.keyCode === 13) {
+    console.log("Triggered!");
+    $('.loginBtn').trigger('click');
+  }
+});
+
 // When user submits a search, send the request for the relevant movies
 $('form').submit(function(e) {
   e.preventDefault();
@@ -322,6 +476,7 @@ $('.topTwentyBox').on({
     $(this).css('transform', 'scale(1.0)');
   },
   click: function() {
+    console.log("clicked!");
     var movieId = $(this).attr('data-id');
     getMovie(movieId);
   }
@@ -422,9 +577,25 @@ $('<button>').attr({
 $('.viewYourRated').click(function() {
   $('.topTwentyBox').html('');
   getUserRated();
-})
+});
+
+// Create the logout button
+$('<button>').attr({
+  class: 'logOut'
+}).css({
+  padding: '10px'
+}).html("Log Out").appendTo($('.right'));
+
+// When the logout button is clicked, erase the localStorage.loggedIn data, reset the username, password, and loggedIn values, and reload the page
+$('.logOut').click(function() {
+  user.username = '';
+  user.password = '';
+  user.loggedIn = false;
+  localStorage.removeItem('loggedIn');
+  location.reload();
+});
 
 // Initialize by clearing the main area and filling it with the top rated movies.
-createSession();
+// createSession();
 $('.topTwentyBox').html('');
 getTopRated();
