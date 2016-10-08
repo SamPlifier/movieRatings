@@ -361,7 +361,7 @@ function getMovie(movieId) {
 function movieSearch(searchString) {
   var settings = {
     // "url": "https://api.themoviedb.org/3/search/movie?query=" + encodeURIComponent(searchString) + "&api_key=" + user.apiKey,
-    "url": "https://arcane-woodland-29724.herokuapp.com/",
+    "url": "https://sleepy-dusk-13496.herokuapp.com/api/movies",
     "method": "GET",
     "headers": {
       "content-type": "application/json"
