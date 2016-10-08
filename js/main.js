@@ -72,7 +72,10 @@ if (!user.loggedIn) {
   // Label and input for username
   $('<label>').attr({
     'for': 'username',
-  }).html('Username: ').appendTo('.usernameContainer');
+  }).html('Username: ').css({
+    'opacity': '1',
+    'color': 'rgb(36, 143, 143)'
+  }).appendTo('.usernameContainer');
   $('<input>').attr({
     'id': 'username',
     'type': 'text',
@@ -97,7 +100,10 @@ if (!user.loggedIn) {
   // Label and input for password
   $('<label>').attr({
     'for': 'password',
-  }).html('Password: ').appendTo('.passwordContainer');
+  }).html('Password: ').css({
+    'opacity':'1',
+    'color': 'rgb(36, 143, 143)'
+  }).appendTo('.passwordContainer');
   $('<input>').attr({
     'id': 'password',
     'type': 'password',
@@ -360,20 +366,17 @@ function getMovie(movieId) {
  */
 function movieSearch(searchString) {
   var settings = {
-    // "url": "https://api.themoviedb.org/3/search/movie?query=" + encodeURIComponent(searchString) + "&api_key=" + user.apiKey,
-    "url": "https://sleepy-dusk-13496.herokuapp.com/api/movies",
-    "method": "GET",
-    "headers": {
-      "content-type": "application/json"
-    },
+    "url": "https://api.themoviedb.org/3/search/movie?query=" + encodeURIComponent(searchString) + "&api_key=" + user.apiKey,
+    // "url": "https://sleepy-dusk-13496.herokuapp.com/api/movies",
+    "method": "GET"
   };
   $.ajax(settings).done(function(response) {
     console.log(response);
-    // $('.topTwentyBox').html('');
-    // response.results.forEach(function(movie) {
-    //     var newMovie = new MovieDetails(movie);
-    //     newMovie.addToList();
-    // });
+    $('.topTwentyBox').html('');
+    response.results.forEach(function(movie) {
+        var newMovie = new MovieDetails(movie);
+        newMovie.addToList();
+    });
   });
 }
 
@@ -600,6 +603,9 @@ $('.logOut').click(function() {
 });
 
 // Initialize by clearing the main area and filling it with the top rated movies.
-// createSession();
+$('.topTwentyBox').css({
+  'position': 'relative',
+  'top': '50px'
+});
 $('.topTwentyBox').html('');
 getTopRated();
