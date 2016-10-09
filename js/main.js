@@ -41,7 +41,6 @@ if (!user.loggedIn) {
     'background': 'black',
     'height': '40%',
     'width': '40%',
-    'border': '1px solid black',
     'display': 'flex',
     'flex-direction': 'column',
     'justify-content': 'center',
@@ -217,8 +216,8 @@ function MovieDetails(movieObject) {
     $(html).prependTo('.topTwentyBox').fadeIn();
     $('.poster').replaceWith('<img class="poster" src=' + this.info.poster + '>');
     var $stars = $('<div>').attr('class','stars').css({
-      height: '40px',
-      width: '60%',
+      height: '30px',
+      width: '160px',
       marginTop: '20px',
       display: 'flex'
     });
@@ -250,8 +249,9 @@ function MovieDetails(movieObject) {
     $('<p>').attr({
       class: 'currentRating',
       'data-id': this.info.movieId
-    }).css({
-      border: '1px solid black',
+    })
+    .css({
+      border: '2px solid #248f8f',
       margin: '20px 0',
       padding: '10px'
     }).appendTo($('.movieInfo'));
@@ -279,7 +279,7 @@ function MovieDetails(movieObject) {
       'data-id': this.info.movieId
     }).css({
       margin: '20px 0',
-      padding: '10px'
+      padding: '10px',
     }).html('Delete Rating').appendTo($('.movieInfo'));
   };
   this.addToList = function() {
