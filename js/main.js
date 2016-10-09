@@ -23,116 +23,52 @@ if (localStorage.loggedIn !== undefined) {
 if (!user.loggedIn) {
   $('<div>').attr({
     'class': 'loginBackground'
-  }).css({
-    'display': 'flex',
-    'justify-content': 'center',
-    'align-items': 'center',
-    'z-index': '1',
-    'position': 'fixed',
-    'height': '100%',
-    'width': '100%',
-    'background': 'radial-gradient(circle, #222222, #248f8f)'
   }).prependTo($('body'));
 
   // Display user login window
   $('<div>').attr({
     'class': 'loginWindow'
-  }).css({
-    'background': 'black',
-    'height': '40%',
-    'width': '40%',
-    'display': 'flex',
-    'flex-direction': 'column',
-    'justify-content': 'center',
-    'align-items': 'center',
-    'border': '1px solid #248f8f',
-    'border-radius': '20px',
-    'box-shadow': '0 0 150px white'
   }).appendTo($('.loginBackground'));
 
   // Prompt for login
-  $('<p>').addClass('loginPrompt').css({
-    'color': '#248f8f',
-    'margin-bottom': '20px',
-    'text-align': 'center'
-  }).html('Please login with your TMDB account: ').appendTo($('.loginWindow'));
+  $('<p>').addClass('loginPrompt').html('Please login with your TMDB account: ').appendTo($('.loginWindow'));
 
   // Container for input field for username
   $('<div>').attr({
     'class': 'usernameContainer',
-  }).css({
-    'width': '70%',
-    'display': 'flex',
-    'flex-wrap': 'wrap',
-    'align-items': 'center',
-    'justify-content': 'space-between',
   }).appendTo('.loginWindow');
 
   // Label and input for username
   $('<label>').attr({
     'for': 'username',
-  }).html('Username: ').css({
-    'opacity': '1',
-    'color': 'rgb(36, 143, 143)'
-  }).appendTo('.usernameContainer');
+  }).html('Username: ').appendTo('.usernameContainer');
   $('<input>').attr({
     'id': 'username',
     'type': 'text',
     'placeholder': 'username',
-  }).css({
-    'padding': '10px',
-    'font-size': '20px',
-    'width': '100%'
   }).appendTo('.usernameContainer');
 
   // Container for input field for password
   $('<div>').attr({
     'class': 'passwordContainer',
-  }).css({
-    'width': '70%',
-    'display': 'flex',
-    'flex-wrap': 'wrap',
-    'align-items': 'center',
-    'justify-content': 'space-between'
   }).appendTo('.loginWindow');
 
   // Label and input for password
   $('<label>').attr({
     'for': 'password',
-  }).html('Password: ').css({
-    'opacity':'1',
-    'color': 'rgb(36, 143, 143)'
-  }).appendTo('.passwordContainer');
+  }).html('Password: ').appendTo('.passwordContainer');
   $('<input>').attr({
     'id': 'password',
     'type': 'password',
     'placeholder': 'password'
-  }).css({
-    'padding': '10px',
-    'font-size': '20px',
-    'width': '100%'
   }).appendTo('.passwordContainer');
 
   // Container for buttons
-  $('<div>').addClass('loginButtons').css({
-    'margin-top': '20px',
-    'width': '70%',
-    'display': 'flex',
-    'justify-content': 'space-around'
-  }).appendTo('.loginWindow');
+  $('<div>').addClass('loginButtons').appendTo('.loginWindow');
   // Button to create new account
-  // $('<button>').addClass('createAccountBtn').html('Create Account').css({
-  //   'width': '40%',
-  //   'border-radius': '5px',
-  //   'padding': '10px'
-  // }).appendTo('.loginButtons');
+  // $('<button>').addClass('createAccountBtn').html('Create Account').appendTo('.loginButtons');
   // Button to login
-  $('<button>').addClass('loginBtn').html('Login').css({
-    'width': '40%',
-    'border-radius': '5px',
-    'padding': '10px',
-    'outline-style': 'none'
-  }).appendTo('.loginButtons');
+  $('<button>').addClass('loginBtn').html('Login').appendTo('.loginButtons');
 } else {
   createSession();
 }
@@ -603,9 +539,5 @@ $('.logOut').click(function() {
 });
 
 // Initialize by clearing the main area and filling it with the top rated movies.
-$('.topTwentyBox').css({
-  'position': 'relative',
-  'top': '50px'
-});
 $('.topTwentyBox').html('');
 getTopRated();

@@ -181,4 +181,60 @@ div.movieTitle {
         position: relative;
         top: 52px; }
 
+.loginBackground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(circle, #222222, #248f8f); }
+  .loginBackground .loginWindow {
+    background: black;
+    height: 300px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #248f8f;
+    border-radius: 20px;
+    box-shadow: 0 0 150px white; }
+    .loginBackground .loginWindow label {
+      opacity: 1;
+      color: #248f8f; }
+    .loginBackground .loginWindow input {
+      padding: 10px;
+      font-size: 20px;
+      width: 100%; }
+    .loginBackground .loginWindow .loginPrompt {
+      color: #248f8f;
+      margin-bottom: 20px;
+      text-align: center;
+      font-family: 'Quicksand', sans-serif; }
+    .loginBackground .loginWindow .usernameContainer, .loginBackground .loginWindow .passwordContainer {
+      width: 70%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Quicksand', sans-serif; }
+    .loginBackground .loginWindow .loginButtons {
+      margin-top: 20px;
+      width: 70%;
+      display: flex;
+      justify-content: space-around; }
+      .loginBackground .loginWindow .loginButtons .loginBtn {
+        width: 40%;
+        border-radius: 5px;
+        padding: 10px;
+        outline-style: none;
+        color: white;
+        font-family: 'Quicksand', sans-serif;
+        border: 2px solid #248f8f;
+        background-color: transparent; }
+        .loginBackground .loginWindow .loginButtons .loginBtn:hover {
+          background: #248f8f; }
+
 /*# sourceMappingURL=main.css.map */
